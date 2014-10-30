@@ -14,5 +14,25 @@ android {
         applicationId "kr.co.saweb.enhance.android"
         minSdkVersion 9
         targetSdkVersion 20
+        version 1.0
     }
+}
+
+android.libraryVariants.all { variant ->
+    def name = variant.buildType.name
+    if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
+        return;
+    }
+
+    def task = project.tasks.create "jar${name.capitalize()}", Jar
+    task.dependsOn variant.javaCompile
+    task.from variant.javaCompile.destinationDir
+    task.exclude('**/R.class', '**/R$*.class', '**/R.html', '**/R.*.html')
+    task.setArchiveName("${rootProject.name }-${project.version }.jar")
+    artifacts.add('archives', task);
+}
+
+task copyTask(type: Copy) {
+    from "${buildDir }${File.separator }libs${File.separator }${rootProject.name }-${project.version }.jar"
+    into "${projectDir }"
 }

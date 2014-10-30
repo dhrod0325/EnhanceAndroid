@@ -10,6 +10,12 @@ import java.util.List;
  * Created by OKS on 2014-10-13.
  */
 public class RadioButtonEventRegister {
+    private static RadioButtonEventRegister instance = new RadioButtonEventRegister();
+
+    public static RadioButtonEventRegister getInstance() {
+        return instance;
+    }
+
     public List<RadioButton> radioButtonList = new ArrayList<RadioButton>();
 
     public void registerRadioButton(RadioButton radioButton) {
