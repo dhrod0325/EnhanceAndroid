@@ -5,8 +5,5 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher">
-
-        <activity android:name=".ui.activity.BaseFragmentActivity_"></activity>
     </application>
-
 </manifest>

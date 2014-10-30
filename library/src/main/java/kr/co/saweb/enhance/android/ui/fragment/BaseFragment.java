@@ -1,11 +1,11 @@
-package kr.co.saweb.enhance.android.annotations.ui.fragment;
+package kr.co.saweb.enhance.android.ui.fragment;
 
 import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.saweb.enhance.android.annotations.core.BusProvider;
+import kr.co.saweb.enhance.android.core.BusProvider;
 
 /**
  * Created by macpro on 2014. 10. 18..

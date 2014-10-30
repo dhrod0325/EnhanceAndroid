@@ -1,17 +1,15 @@
-package kr.co.saweb.enhance.android.annotations.ui.list;
+package kr.co.saweb.enhance.android.ui.list;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import java.lang.reflect.Constructor;
-import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.saweb.enhance.android.annotations.util.AnnotationUtils;
+import kr.co.saweb.enhance.android.util.reflection.AnnotationUtils;
 
 /**
  * Created by OKS on 2014-10-18.
@@ -61,6 +59,10 @@ public abstract class BaseListAdapter<T extends BaseListItemView> extends BaseAd
 
     public void add(Object item) {
         itemList.add(item);
+    }
+
+    public void clear() {
+        itemList.clear();
     }
 
     public void setItemList(List itemList) {

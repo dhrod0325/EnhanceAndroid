@@ -1,4 +1,4 @@
-package kr.co.saweb.enhance.android.annotations.ui.view;
+package kr.co.saweb.enhance.android.ui.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.saweb.enhance.android.annotations.core.BusProvider;
+import kr.co.saweb.enhance.android.core.BusProvider;
 
 /**
  * Created by macpro on 2014. 10. 18..

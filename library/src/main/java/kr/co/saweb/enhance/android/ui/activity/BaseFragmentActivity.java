@@ -1,11 +1,11 @@
-package kr.co.saweb.enhance.android.annotations.ui.activity;
+package kr.co.saweb.enhance.android.ui.activity;
 
 import android.support.v4.app.FragmentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import kr.co.saweb.enhance.android.annotations.core.BusProvider;
+import kr.co.saweb.enhance.android.core.BusProvider;
 
 public class BaseFragmentActivity extends FragmentActivity {
     private List<Object> eventHandlerList = new ArrayList<Object>();

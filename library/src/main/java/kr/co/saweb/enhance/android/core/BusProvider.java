@@ -1,4 +1,4 @@
-package kr.co.saweb.enhance.android.annotations.core;
+package kr.co.saweb.enhance.android.core;
 
 import com.squareup.otto.Bus;
 

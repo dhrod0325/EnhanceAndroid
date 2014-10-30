@@ -1,4 +1,4 @@
-package kr.co.saweb.enhance.android.annotations.ui.list;
+package kr.co.saweb.enhance.android.ui.list;
 
 import android.content.Context;
 import android.widget.LinearLayout;

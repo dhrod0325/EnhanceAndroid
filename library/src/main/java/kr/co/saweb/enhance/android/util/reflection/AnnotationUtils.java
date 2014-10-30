@@ -1,4 +1,4 @@
-package kr.co.saweb.enhance.android.annotations.util;
+package kr.co.saweb.enhance.android.util.reflection;
 
 import java.lang.reflect.ParameterizedType;
 
