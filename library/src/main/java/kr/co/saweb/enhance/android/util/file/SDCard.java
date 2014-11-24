@@ -14,12 +14,6 @@ public class SDCard extends AndroidFile {
     private File savePath;
     private String sdCardDir;
 
-    private static SDCard instance = new SDCard();
-
-    public static SDCard getInstance() {
-        return instance;
-    }
-
     @Override
     public File getSavePath() {
         sdCard = Environment.getExternalStorageDirectory();

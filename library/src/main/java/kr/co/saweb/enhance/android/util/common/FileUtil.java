@@ -18,6 +18,9 @@ import java.util.ArrayList;
  */
 public class FileUtil {
     public static Object readObject(File file) throws Exception {//저장한 객체를 가저와서 읽는다.
+        if (!file.isFile())
+            return null;
+
         FileInputStream fis = new FileInputStream(file);
         ObjectInputStream ois = new ObjectInputStream(new BufferedInputStream(fis));
         Object result = ois.readObject();
@@ -42,6 +45,9 @@ public class FileUtil {
     }
 
     public static String readFile(File file) throws Exception {
+        if (!file.isFile())
+            return null;
+
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line = null;
         StringBuffer sb = new StringBuffer();

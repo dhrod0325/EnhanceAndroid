@@ -15,12 +15,12 @@ public class ReceiverManager {
 
     private List<BaseReceiver> receiverList = new ArrayList<BaseReceiver>();
 
-    public void addReceiver(BaseReceiver receiver) {
-        receiverList.add(receiver);
-    }
-
     public static ReceiverManager getInstance() {
         return instance;
+    }
+
+    public void addReceiver(BaseReceiver receiver) {
+        receiverList.add(receiver);
     }
 
     public void register(Activity activity) {

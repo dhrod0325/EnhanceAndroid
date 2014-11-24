@@ -6,12 +6,16 @@ import java.util.Properties;
 /**
  * Created by OKS on 2014-11-20.
  */
-public class ExternalProperties {
+public class FileProperties {
     private AndroidFile androidFile;
     private Properties properties;
     private String propName;
 
-    public ExternalProperties() {
+    public FileProperties() {
+    }
+
+    public FileProperties(AndroidFile androidFile, String propName) {
+        setUp(androidFile, propName);
     }
 
     public void setUp(AndroidFile androidFile, String propName) {
@@ -24,10 +28,6 @@ public class ExternalProperties {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public ExternalProperties(AndroidFile androidFile, String propName) {
-        setUp(androidFile, propName);
     }
 
     public void put(String key, Object value) {

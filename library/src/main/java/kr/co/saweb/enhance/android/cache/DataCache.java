@@ -59,7 +59,9 @@ public class DataCache {
         if (maxCacheSize <= 0) {
             return null;
         }
+
         DataCacheEntry dataCacheEntry = dataCache.get(key);
+
         if (dataCacheEntry == null) {
             return null;
         } else {
