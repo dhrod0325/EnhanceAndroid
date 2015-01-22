@@ -1,5 +1,6 @@
 package kr.co.saweb.enhance.android.util.ui;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
@@ -35,6 +36,14 @@ public class UiUtils {
                 .hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
+    public static void keyboardHideCurrent(Activity activity) {
+        View view = activity.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager inputManager = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
     public static void keyboardShow(View view, Context context) {
         ((InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE))
                 .showSoftInput(view, InputMethodManager.SHOW_FORCED);
@@ -50,14 +59,22 @@ public class UiUtils {
         return networkInfo != null && networkInfo.isConnected();
     }
 
-    public static String getVersionName(Context context) {
+    public static android.content.pm.PackageInfo getPackageInfo(Context context) {
         try {
-            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
 
-        return "error";
+        return null;
+    }
+
+    public static int getVersionCode(Context context) {
+        return getPackageInfo(context).versionCode;
+    }
+
+    public static String getVersionName(Context context) {
+        return getPackageInfo(context).versionName;
     }
 
     public static String convertToHtml(String str, String style) {

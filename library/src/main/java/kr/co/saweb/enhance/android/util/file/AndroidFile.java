@@ -25,7 +25,7 @@ public abstract class AndroidFile {
         cacheKeys.add(fileName);
 
         File f = new File(getSavePath(), fileName);
-
+        
         log("writeText", f.getAbsolutePath());
 
         FileUtil.writeFile(text, f);
@@ -34,12 +34,13 @@ public abstract class AndroidFile {
     public String readText(String fileName) throws Exception {
         File f = new File(getSavePath(), fileName);
 
-        if (f.isFile()) {
-            log("readText", f.getAbsolutePath());
-            return FileUtil.readFile(f);
+        if (!f.isFile()) {
+            writeText("", fileName);
         }
 
-        return null;
+        log("readText", f.getAbsolutePath());
+
+        return FileUtil.readFile(f);
     }
 
     public void writeObject(Object object, String fileName) throws Exception {

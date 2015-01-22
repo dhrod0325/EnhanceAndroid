@@ -1,5 +1,7 @@
 package kr.co.saweb.enhance.android.util.common;
 
+import java.net.URLEncoder;
+
 /**
  * Created by OKS on 2014-10-15.
  */
@@ -214,5 +216,21 @@ public class StringUtils {
             return "";
 
         return str.replaceAll(System.getProperty("line.separator"), "<br/>");
+    }
+
+    public static String encodeUrlInFileName(String u) {
+        try {
+            String fileName = u.substring(u.lastIndexOf("/") + 1, u.length());
+
+            String baseUrl = u.substring(0, u.lastIndexOf("/"));
+
+            String fileUrl = baseUrl + "/"+ URLEncoder.encode(fileName, "utf-8");
+
+            return fileUrl;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }
