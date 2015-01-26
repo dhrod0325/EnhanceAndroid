@@ -10,7 +10,6 @@ package kr.co.saweb.enhance.android.log;
  For more information, please refer to <http://unlicense.org/>
  */
 
-import android.support.v4.BuildConfig;
 import android.util.Log;
 
 /**
@@ -25,12 +24,18 @@ public class DebugLog {
     static String methodName;
     static int lineNumber;
 
+    private static boolean DEBUG = false;
+
     private DebugLog() {
         /* Protect from instantiations */
     }
 
+    public static void setDEBUG(boolean DEBUG) {
+        DebugLog.DEBUG = DEBUG;
+    }
+
     public static boolean isDebugAble() {
-        return BuildConfig.DEBUG;
+        return DEBUG;
     }
 
     private static String createLog(String log) {
@@ -40,7 +45,7 @@ public class DebugLog {
         buffer.append(methodName);
         buffer.append(":");
         buffer.append(lineNumber);
-        buffer.append("]");
+        buffer.append("] ");
         buffer.append(log);
 
         return buffer.toString();
@@ -99,6 +104,60 @@ public class DebugLog {
 
         getMethodNames(new Throwable().getStackTrace());
         Log.wtf(className, createLog(message));
+    }
+
+    public static void i(String message, Object... args) {
+        if (!isDebugAble())
+            return;
+
+        getMethodNames(new Throwable().getStackTrace());
+
+        Log.i(className, String.format(createLog(message), args));
+    }
+
+    public static void d(String message, Object... args) {
+        if (!isDebugAble())
+            return;
+
+        getMethodNames(new Throwable().getStackTrace());
+
+        Log.d(className, String.format(createLog(message), args));
+    }
+
+    public static void e(String message, Object... args) {
+        if (!isDebugAble())
+            return;
+
+        getMethodNames(new Throwable().getStackTrace());
+
+        Log.e(className, String.format(createLog(message), args));
+    }
+
+    public static void v(String message, Object... args) {
+        if (!isDebugAble())
+            return;
+
+        getMethodNames(new Throwable().getStackTrace());
+
+        Log.v(className, String.format(createLog(message), args));
+    }
+
+    public static void w(String message, Object... args) {
+        if (!isDebugAble())
+            return;
+
+        getMethodNames(new Throwable().getStackTrace());
+
+        Log.w(className, String.format(createLog(message), args));
+    }
+
+    public static void wtf(String message, Object... args) {
+        if (!isDebugAble())
+            return;
+
+        getMethodNames(new Throwable().getStackTrace());
+
+        Log.wtf(className, String.format(createLog(message), args));
     }
 
 }
