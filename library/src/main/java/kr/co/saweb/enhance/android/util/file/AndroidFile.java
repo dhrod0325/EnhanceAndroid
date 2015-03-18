@@ -25,7 +25,7 @@ public abstract class AndroidFile {
         cacheKeys.add(fileName);
 
         File f = new File(getSavePath(), fileName);
-        
+
         log("writeText", f.getAbsolutePath());
 
         FileUtil.writeFile(text, f);

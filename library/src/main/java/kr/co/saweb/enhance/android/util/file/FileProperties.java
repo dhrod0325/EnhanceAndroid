@@ -1,6 +1,7 @@
 package kr.co.saweb.enhance.android.util.file;
 
 import java.io.StringReader;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -35,12 +36,16 @@ public class FileProperties {
         save();
     }
 
+    public Properties getProperties() {
+        return properties;
+    }
+
     public Object get(String key) {
         return properties.get(key);
     }
 
     public String getString(String key) {
-        return String.valueOf(get(key));
+        return get(key) == null ? null : String.valueOf(get(key)).trim();
     }
 
     public boolean getBoolean(String key) {
